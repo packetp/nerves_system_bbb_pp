@@ -5,15 +5,15 @@
  * Helper to show loaded overlays under: /proc/device-tree/chosen/overlays/
  */
 &{/chosen} {
-	overlays {
-		BB-ramoops.kernel = __TIMESTAMP__;
-	};
+    overlays {
+        BB-ramoops.kernel = __TIMESTAMP__;
+    };
 };
 &{/} {
-	reserved-memory {
-		#address-cells = <1>;
-		#size-cells = <1>;
-		ranges;
+    reserved-memory {
+        #address-cells = <1>;
+        #size-cells = <1>;
+        ranges;
         ramoops@90000000 {
             #address-cells = <1>;
             #size-cells = <1>;
