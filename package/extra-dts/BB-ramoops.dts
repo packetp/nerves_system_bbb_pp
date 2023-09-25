@@ -1,0 +1,28 @@
+/dts-v1/;
+/plugin/;
+
+/*
+ * Helper to show loaded overlays under: /proc/device-tree/chosen/overlays/
+ */
+&{/chosen} {
+    overlays {
+        BB-ramoops.kernel = __TIMESTAMP__;
+    };
+};
+&{/} {
+    reserved-memory {
+        #address-cells = <1>;
+        #size-cells = <1>;
+        ranges;
+        ramoops@90000000 {
+            #address-cells = <1>;
+            #size-cells = <1>;
+            compatible = "ramoops";
+            reg = <0x90000000 0x40000 >; // 256K at 0x90000000
+            ecc-size = <16>;
+            record-size  = <0x10000>;    // 64kB per record
+            console-size = <0x10000>;    // 64kB for console output
+            pmsg-size    = <0x1000>;     // 4kB for user messages
+        };
+    };
+};
